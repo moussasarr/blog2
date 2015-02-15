@@ -1,0 +1,10 @@
+<h1>All Tags</h1>
+
+     <p> Click on a tag that closely relates to your search </p>
+<ul>
+  <% @tags.each do |tag| %>
+    
+  <h2><%= link_to tag.name, tag_path(tag) %></h2>
+    <% end %>
+    </ul>
+    

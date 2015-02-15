@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-	include ArticlesHelper
+	
+	before_filter :require_login, only: [:new, :create, :edit, :update, :destroy]
 	
 	def index
     	@articles = Article.all
@@ -41,6 +42,6 @@ class ArticlesController < ApplicationController
 
     private
     def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :tag_list, :image)
     end
 end
